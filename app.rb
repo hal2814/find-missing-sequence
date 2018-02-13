@@ -22,38 +22,57 @@ def find_missing_number(array)
   if count == 1
     return 1
   end
-  temp = array
+  temp = array.dup
   until triangular_number(temp) == count_triangular_number(count)
     count -= 1
     temp.pop
-    puts temp.to_s
   end
-  puts "missing number:"
   count + 1
 end
 
 
 thear = [1,2,3,5,6,7,8,9,10,11,13,14,15]
 
-puts "array is: "
+puts "* * * * * * * *"
+
+puts "starting array is: "
 puts thear.to_s
 
-puts "triangular_number: "
+puts "array's triangular number is: "
 puts triangular_number(thear)
 
-puts "count_triangular_number: "
+puts "array count triangular number is: "
 puts count_triangular_number(thear.length)
 
-# puts "missing number in sequence is: "
-puts find_missing_number(thear)
-
-thear.push(find_missing_number(thear))
-
-puts thear.to_s
-puts thear.length
+puts "missing number in the sequence is: "
+num = find_missing_number(thear)
+puts num
+thear = thear.push(num).sort
 
 puts "----------------------------"
 puts "adding number to sequence..."
 
 puts "array is now: "
 puts thear.to_s
+
+puts "**** NEXT RUN ****"
+
+puts "starting array is: "
+puts thear.to_s
+
+puts "array's triangular number is: "
+puts triangular_number(thear)
+
+puts "array count triangular number is: "
+puts count_triangular_number(thear.length)
+
+puts "missing number in the sequence is: "
+num = find_missing_number(thear)
+puts num
+thear.push(num)
+
+puts "----------------------------"
+puts "adding number to sequence..."
+
+puts "array is now: "
+puts thear.sort.to_s
