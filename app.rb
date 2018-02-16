@@ -1,16 +1,17 @@
 
-# def list_missing_numbers(array)
-#   missing = []
-#   num = 0
-#   until num == array.last+1
-#     num = find_missing_number(array)
-#     array.push(num)
-#     array.sort
-#     puts num
-#     missing.push(num)
-#   end
-#   missing
-# end
+def list_missing_numbers(array)
+  current_ar = array.dup
+  missing = []
+  num = 0
+  while num < current_ar.last
+    num = find_missing_number(current_ar)
+    current_ar = current_ar.push(num)
+    current_ar = current_ar.sort
+    missing = missing.push(num) if num < current_ar.last
+  end
+  missing
+end
+
 
 def create_array_of_size(num)
   ar = []
@@ -129,5 +130,5 @@ puts "adding number to sequence..."
 puts "array is now: "
 puts thear.to_s
 
-# puts "*All missing numbers:"
-# puts list_missing_numbers(thear_copy)
+puts "*All missing numbers:"
+puts list_missing_numbers(thear_copy).to_s
