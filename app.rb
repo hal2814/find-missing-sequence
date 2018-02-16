@@ -50,12 +50,11 @@ def find_missing_number(array)
   count + 1
 end
 
-
-# thear = [1,2,3,5,6,7,8,9,10,11,13,14,15]
-thear = create_array_of_size(520)
-thear.delete(37)
-thear.delete(127)
-thear.delete(462)
+size = 25
+thear = create_array_of_size(size)
+thear.delete(rand(1..(size - 1)))
+thear.delete(rand(1..(size - 1)))
+thear.delete(rand(1..(size - 1)))
 thear_copy = thear.dup
 
 puts "********************"
